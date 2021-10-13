@@ -1,0 +1,49 @@
+$baseColor: rgb(102, 165, 180);
+$baseColorFont: rgb(253, 94, 1);
+
+.box {
+  display: inline-flex;
+  border: 3px solid $baseColor;
+  background-color: $baseColor;
+  border-radius: 6px;
+
+  height: 100px;
+  width: 100px;
+
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  margin: 16px;
+}
+
+.color-box-text {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.base-color {
+  color: white;
+}
+
+@for $index from 1 through 4 {
+  .darken-#{$index} {
+    background-color: darken($baseColor, 10% * $index);
+    border-color: darken($baseColor, 10% * $index);
+  }
+
+  .darken-#{$index} .color-box-text {
+    color: darken($baseColorFont, 10% * $index);
+  }
+
+  .lighten-#{$index} {
+    background-color: lighten($baseColor, 10% * $index);
+    border-color: lighten($baseColor, 10% * $index);
+  }
+
+  .lighten-#{$index} .color-box-text {
+    color: lighten($baseColorFont, 10% * $index);
+  }
+}
